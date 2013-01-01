@@ -1,3 +1,6 @@
 [submodule "dotvim/bundle/nerdtree"]
 	path = dotvim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+[submodule "dotvim/bundle/tagbar"]
+	path = dotvim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
