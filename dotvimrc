@@ -2,3 +2,17 @@ call pathogen#infect()
 call pathogen#helptags()
 syntax on
 filetype plugin indent on
+
+set ai
+set smartindent
+set ts=4
+set sw=4
+
+" python from powerline.ext.vim import source_plugin; source_plugin()
+" set laststatus=2
+
+set t_Co=256
+set encoding=utf-8
+
+nmap <F7> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
