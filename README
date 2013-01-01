@@ -1,0 +1,10 @@
+# To install these configurations, do the following:
+
+cd 
+git clone git://github.com/nicr9/dotfiles.git
+cd ~/dotfiles
+ln -s dotvimrc ~/.vimrc
+ln -s dotvim ~/.vim
+git submodule init
+git submodule update
+
