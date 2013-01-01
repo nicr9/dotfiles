@@ -4,3 +4,6 @@
 [submodule "dotvim/bundle/tagbar"]
 	path = dotvim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "dotvim/bundle/supertab"]
+	path = dotvim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
