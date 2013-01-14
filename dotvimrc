@@ -3,8 +3,11 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+<<<<<<< HEAD
 let NERDTreeIgnore = ['\.pyc$']
 
+=======
+>>>>>>> 4c9dcd4c664b40757aa8c72d4bcc96f52a4ac65a
 set expandtab
 set ai
 "set smartindent
