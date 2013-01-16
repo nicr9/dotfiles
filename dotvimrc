@@ -17,9 +17,16 @@ nmap <F7> :NERDTreeToggle<CR>
 python from powerline.ext.vim import source_plugin; source_plugin()
 set laststatus=2
 
-" Text colour and encoding
+" Text colours and encoding
 set t_Co=256
 set encoding=utf-8
 
 " Configure Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Extra settings
+set wildmenu
+set number
+set hlsearch
+set incsearch
+set colorcolumn=80
