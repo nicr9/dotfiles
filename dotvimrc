@@ -6,13 +6,13 @@ filetype plugin indent on
 let NERDTreeIgnore = ['\.pyc$']
 
 set expandtab
-set ai
+"set ai
 "set smartindent
 set ts=4
 set sw=4
 
-" python from powerline.ext.vim import source_plugin; source_plugin()
-" set laststatus=2
+python from powerline.ext.vim import source_plugin; source_plugin()
+set laststatus=2
 
 set t_Co=256
 set encoding=utf-8
