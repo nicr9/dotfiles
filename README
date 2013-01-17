@@ -1,6 +1,6 @@
 # install git vim screen exuberant-ctags python2.7
 # CentOS 5:
-sudo yum install git vim-enhanced screen ctags python
+sudo yum install git vim-enhanced screen ctags python27-pip
 
 # To configure setup, do the following:
 cd 
@@ -10,4 +10,4 @@ ln -s dotfiles/dotvim/ .vim
 cd ~/dotfiles
 git submodule init
 git submodule update
-pip install https://github.com/Lokaltog/powerline/tarball/develop
+sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
