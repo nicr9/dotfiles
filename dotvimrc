@@ -25,3 +25,6 @@ set wildmenu
 set number
 set hlsearch
 set incsearch
+
+" Extra keymappings
+nmap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
