@@ -13,10 +13,6 @@ set sw=4
 let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
-" Configure Powerline
-python from powerline.ext.vim import source_plugin; source_plugin()
-set laststatus=2
-
 " Text colours and encoding
 set t_Co=256
 set encoding=utf-8
@@ -29,4 +25,3 @@ set wildmenu
 set number
 set hlsearch
 set incsearch
-set colorcolumn=80
