@@ -1,4 +1,8 @@
-# To install these configurations, do the following:
+# install git vim screen exuberant-ctags terminator python2.7
+# Ubuntu & Debian:
+sudo apt-get install git vim screen exuberant-ctags terminator python
+
+# To configure setup, do the following:
 cd 
 git clone git://github.com/nicr9/dotfiles.git
 ln -s dotfiles/dotvimrc .vimrc
@@ -7,5 +11,10 @@ cp dotfiles/dotgitconfig .gitconfig
 cd ~/dotfiles
 git submodule init
 git submodule update
+sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
+sudo cp monofur.otf /usr/share/fonts/truetype/
+sudo fc-cache -f -v
+
+# Fill in the blanks w/ git name and email details
 git config --global user.name ""
 git config --global user.email ""

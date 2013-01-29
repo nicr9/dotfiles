@@ -1,21 +1,35 @@
+" Configure Pathogen
 call pathogen#infect()
 call pathogen#helptags()
+
+" Syntax HL and indentation
 syntax on
 filetype plugin indent on
-
-let NERDTreeIgnore = ['\.pyc$']
-
 set expandtab
-set ai
-"set smartindent
 set ts=4
 set sw=4
 
-" python from powerline.ext.vim import source_plugin; source_plugin()
-" set laststatus=2
+" Configure NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+nmap <F7> :NERDTreeToggle<CR>
 
+" Configure Powerline
+python from powerline.bindings.vim import source_plugin; source_plugin()
+set laststatus=2
+
+" Text colours and encoding
 set t_Co=256
 set encoding=utf-8
 
-nmap <F7> :NERDTreeToggle<CR>
+" Configure Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Extra settings
+set wildmenu
+set number
+set hlsearch
+set incsearch
+set colorcolumn=80
+
+" Extra keymappings
+nmap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
