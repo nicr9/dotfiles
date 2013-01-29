@@ -3,7 +3,9 @@ cd
 git clone git://github.com/nicr9/dotfiles.git
 ln -s dotfiles/dotvimrc .vimrc
 ln -s dotfiles/dotvim/ .vim
+cp dotfiles/dotgitconfig .gitconfig
 cd ~/dotfiles
 git submodule init
 git submodule update
-
+git config --global user.name ""
+git config --global user.email ""
