@@ -7,8 +7,14 @@ cd
 git clone git://github.com/nicr9/dotfiles.git
 ln -s dotfiles/dotvimrc .vimrc
 ln -s dotfiles/dotvim/ .vim
+cp dotfiles/dotgitconfig .gitconfig
 cd ~/dotfiles
 git submodule init
 git submodule update
-pip install https://github.com/Lokaltog/powerline/tarball/develop
-cp monofur.otf /usr/share/fonts/truetype/
+sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
+sudo cp monofur.otf /usr/share/fonts/truetype/
+sudo fc-cache -f -v
+
+# Fill in the blanks w/ git name and email details
+git config --global user.name ""
+git config --global user.email ""

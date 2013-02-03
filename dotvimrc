@@ -14,7 +14,7 @@ let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
 " Configure Powerline
-python from powerline.ext.vim import source_plugin; source_plugin()
+python from powerline.bindings.vim import source_plugin; source_plugin()
 set laststatus=2
 
 " Text colours and encoding
@@ -30,3 +30,6 @@ set number
 set hlsearch
 set incsearch
 set colorcolumn=80
+
+" Extra keymappings
+nmap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
