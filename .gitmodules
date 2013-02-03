@@ -13,3 +13,6 @@
 [submodule "dotvim/bundle/ctrlp"]
 	path = dotvim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "dotvim/bundle/ack"]
+	path = dotvim/bundle/ack
+	url = git://github.com/mileszs/ack.vim.git
