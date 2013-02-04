@@ -14,6 +14,7 @@ let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
 " Configure Powerline
+source ~/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/source_plugin.vim
 python from powerline.bindings.vim import source_plugin; source_plugin()
 set laststatus=2
 
