@@ -21,10 +21,14 @@ set encoding=utf-8
 nmap <F8> :TagbarToggle<CR>
 
 " Extra settings
-set wildmenu
+set wildchar=<Tab> wildmenu wildmode=full
 set number
 set hlsearch
 set incsearch
 
 " Extra keymappings
-nmap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+nmap <F4> :Ack <C-R><C-W> <CR>
+nmap <F3> :!pygt <C-R><C-W> <CR>'
+nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
+nmap n nzz
+nmap N Nzz
