@@ -32,3 +32,10 @@ nmap <F3> :!pygt <C-R><C-W> <CR>'
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
 nmap n nzz
 nmap N Nzz
+
+" Colourscheme changes to make vimdiff readable
+hi DiffDelete ctermfg=DarkRed
+hi DiffText ctermbg=DarkGrey
+hi DiffAdd cterm=bold ctermbg=DarkGreen
+hi DiffChange cterm=inverse
+hi Visual cterm=inverse
