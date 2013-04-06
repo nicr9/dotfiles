@@ -16,3 +16,6 @@
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "dotvim/bundle/powerline"]
+	path = dotvim/bundle/powerline
+	url = git://github.com/Lokaltog/powerline.git
