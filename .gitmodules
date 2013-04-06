@@ -19,3 +19,6 @@
 [submodule "dotvim/bundle/powerline"]
 	path = dotvim/bundle/powerline
 	url = git://github.com/Lokaltog/powerline.git
+[submodule "dotvim/bundle/CtrlP"]
+	path = dotvim/bundle/CtrlP
+	url = git://github.com/kien/ctrlp.vim.git
