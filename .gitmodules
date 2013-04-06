@@ -10,12 +10,12 @@
 [submodule "dotvim/bundle/fugitive"]
 	path = dotvim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "dotvim/bundle/ctrlp"]
-	path = dotvim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "dotvim/bundle/pygt.vim"]
+	path = dotvim/bundle/pygt.vim
+	url = /media/3CEB-8B20/pygt.vim/
 [submodule "dotvim/bundle/powerline"]
 	path = dotvim/bundle/powerline
 	url = git://github.com/Lokaltog/powerline.git
