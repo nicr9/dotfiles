@@ -18,3 +18,4 @@ sudo fc-cache -f -v
 # Fill in the blanks w/ git name and email details
 git config --global user.name ""
 git config --global user.email ""
+git config --global color.ui true

@@ -14,7 +14,7 @@ let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
 " Configure Powerline
-python from powerline.bindings.vim import source_plugin; source_plugin()
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
 
 " Text colours and encoding
@@ -23,6 +23,9 @@ set encoding=utf-8
 
 " Configure Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Configure CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp
 
 " Extra settings
 set wildmenu
