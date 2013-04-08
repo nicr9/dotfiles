@@ -1,6 +1,6 @@
 # install git vim screen exuberant-ctags terminator python2.7
 # Ubuntu & Debian:
-sudo apt-get install git vim screen exuberant-ctags terminator python
+sudo apt-get install git vim screen exuberant-ctags terminator python pandoc
 
 # To configure setup, do the following:
 cd 
