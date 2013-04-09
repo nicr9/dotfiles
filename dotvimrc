@@ -13,6 +13,9 @@ set sw=4
 let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
+" Configure Powerline
+set laststatus=2
+
 " Text colours and encoding
 set t_Co=256
 set encoding=utf-8
@@ -28,7 +31,7 @@ set incsearch
 
 " Extra keymappings
 nmap <F4> :Ack <C-R><C-W> <CR>
-nmap <F3> :!pygt <C-R><C-W> <CR>'
+nmap <F3> :!pygt <C-R><C-W> <CR>
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
 nmap n nzz
 nmap N Nzz
