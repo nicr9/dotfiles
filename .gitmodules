@@ -22,3 +22,6 @@
 [submodule "dotvim/bundle/CtrlP"]
 	path = dotvim/bundle/CtrlP
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "dotvim/bundle/markdown"]
+	path = dotvim/bundle/markdown
+	url = git://github.com/hughbien/md-vim.git
