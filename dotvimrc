@@ -30,6 +30,7 @@ set hlsearch
 set incsearch
 
 " Extra keymappings
+nmap <F5> :exec "?\\(<C-R><C-W>\\s*=" . '\\|' . "\\(class" . '\\|' . "def\\).*<C-R><C-W>.*:\\)"<CR>
 nmap <F4> :Ack <C-R><C-W> <CR>
 nmap <F3> :!pygt <C-R><C-W> <CR>
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
