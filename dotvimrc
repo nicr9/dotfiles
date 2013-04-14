@@ -36,3 +36,4 @@ set colorcolumn=80
 
 " Extra keymappings
 nmap <F1> :w !pandoc -c ~/css/github.css -o %:r.html<CR>
+nmap <F3> :Pygt<CR>
