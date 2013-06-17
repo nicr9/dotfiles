@@ -7,6 +7,7 @@ cd
 git clone git://github.com/nicr9/dotfiles.git
 ln -s dotfiles/dotvimrc .vimrc
 ln -s dotfiles/dotvim/ .vim
+ln -s dotfiles/dotinputrc .inputrc
 cp dotfiles/dotgitconfig .gitconfig
 cd ~/dotfiles
 git submodule init
