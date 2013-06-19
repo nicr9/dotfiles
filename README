@@ -6,7 +6,7 @@ sudo apt-get update
 
 # install git vim screen exuberant-ctags terminator python2.7 pandoc and i3
 # Ubuntu & Debian:
-sudo apt-get install git vim screen exuberant-ctags terminator python pandoc i3
+sudo apt-get install git vim screen exuberant-ctags terminator python pandoc i3 feh
 
 # To configure setup, do the following:
 cd 
