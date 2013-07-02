@@ -156,3 +156,4 @@ bar {
 
 ## USER CHANGES
 bindsym Control+mod1+l exec i3lock -c 00678c -n -d 1
+client.urgent #2f343a #900000 #ffffff #900000
