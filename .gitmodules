@@ -25,3 +25,6 @@
 [submodule "dotvim/bundle/markdown"]
 	path = dotvim/bundle/markdown
 	url = git://github.com/hughbien/md-vim.git
+[submodule "dotvim/bundle/go.vim"]
+	path = dotvim/bundle/go.vim
+	url = git://github.com/jnwhiteh/vim-golang.git
