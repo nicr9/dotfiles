@@ -35,8 +35,9 @@ set incsearch
 set colorcolumn=80
 
 " Extra keymappings
+nmap <F5> :setl noai nocin nosi inde=<CR>
 nmap <F4> :Ack <C-R><C-W> <CR>
-nmap <F3> :Pygt<CR>
+nmap <F3> :!pygt <C-R><C-W> <CR>
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
 nmap <F1> :w !pandoc -c ~/css/github.css -o %:r.html<CR>
 nmap n nzz

@@ -1,12 +1,20 @@
-# install git vim screen exuberant-ctags terminator python2.7
+# Add repo for i3
+sudo echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get --allow-unauthenticated install sur5r-keyring
+sudo apt-get update
+
+# install git vim screen exuberant-ctags terminator python2.7 pandoc and i3
 # Ubuntu & Debian:
-sudo apt-get install git vim screen exuberant-ctags terminator python pandoc
+sudo apt-get install git vim screen exuberant-ctags terminator python pandoc i3 feh
 
 # To configure setup, do the following:
 cd 
 git clone git://github.com/nicr9/dotfiles.git
 ln -s dotfiles/dotvimrc .vimrc
 ln -s dotfiles/dotvim/ .vim
+ln -s dotfiles/dotinputrc .inputrc
+ln -s dotfiles/doti3/ .i3
 cp dotfiles/dotgitconfig .gitconfig
 cd ~/dotfiles
 git submodule init
