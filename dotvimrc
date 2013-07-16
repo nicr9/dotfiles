@@ -37,6 +37,9 @@ nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
 nmap n nzz
 nmap N Nzz
 
+nmap gd md?def <C-R><C-W>(<CR>:noh<CR>
+nmap gc mc?class <C-R><C-W>[(:]<CR>:noh<CR>
+
 " Colourscheme changes to make vimdiff readable
 hi DiffDelete ctermfg=DarkRed
 hi DiffText ctermbg=DarkGrey
