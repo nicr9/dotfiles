@@ -14,7 +14,7 @@ let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
 " Configure Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
 
 " Text colours and encoding
