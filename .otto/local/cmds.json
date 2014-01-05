@@ -1,0 +1,5 @@
+{
+    "cmds": {
+        "setup": "/home/nic/dotfiles/.otto/local/setup.py"
+    }
+}
