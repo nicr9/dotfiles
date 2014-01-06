@@ -2,7 +2,7 @@ import otto.utils as otto
 import os
 import os.path
 
-SETUP_CODE = {
+PRE = {
         None: '',
         'Ubuntu': """sudo echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
                      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -14,7 +14,7 @@ SETUP_CODE = {
         'CentOS': '',
         }
 
-SUPPORTED_PLATFORMS = SETUP_CODE.keys()
+SUPPORTED_PLATFORMS = PRE.keys()
 SUPPORTED_PLATFORMS.remove(None)
 
 PPAS = [
@@ -55,12 +55,21 @@ CP_FILES = [
         ('monofur.otf', '/usr/share/fonts/truetype/'),
         ]
 
-def _run_script(script):
+POST = {
+        None: """git submodule init
+                 git submodule update
+                 git config --global user.name "%(username)s"
+                 git config --global user.email "%(email)s" """,
+        'Ubuntu': "sudo fc-cache -f -v",
+        'CentOS': "",
+    }
+
+def _run_script(script, details={}):
     res = ''
     if script:
         lines = script.splitlines()
         for cmd in lines:
-            res += otto.shell(cmd.strip())
+            res += otto.shell(cmd.strip() % details)
 
     return res
 
@@ -91,8 +100,8 @@ class Setup(otto.OttoCmd):
         print
 
         # General setup
-        _run_script(SETUP_CODE[None])
-        _run_script(SETUP_CODE[platform.result])
+        _run_script(PRE[None])
+        _run_script(PRE[platform.result])
 
         # Get all PPAs setup
         if platform.result == 'Ubuntu' and PPAS:
@@ -117,9 +126,10 @@ class Setup(otto.OttoCmd):
                 otto.shell("cp %s %s" % (relative_from, cp_to))
 
         # More config
+        details = {
+                'username': username.result,
+                'email': email.result,
+                }
         otto.info("Some last minute config...")
-        otto.shell("git submodule init")
-        otto.shell("git submodule update")
-        otto.shell("sudo fc-cache -f -v")
-        otto.shell('git config --global user.name "%s"' % username.result)
-        otto.shell('git config --global user.email "%s"' % email.result)
+        _run_script(POST[None], details)
+        _run_script(POST[platform.result])
