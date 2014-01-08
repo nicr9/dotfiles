@@ -32,7 +32,12 @@ PACKAGES = {
             'i3',
             'feh',
             ],
-        'CentOS': [],
+        'CentOS': [
+            'git',
+            'vim-enhanced',
+            'screen',
+            'ctags'
+            ],
         'python': [
             #'https://github.com/Lokaltog/powerline/tarball/develop',
             ],
@@ -49,6 +54,7 @@ SYMLINKS = {
             ('dotvimrc', '.vimrc'),
             ('dotvim/', '.vim'),
             ('dotinputrc', '.inputrc'),
+            ('dotgitignore', '.gitignore_global'),
             ],
         'Ubuntu': [
             ('doti3/', '.inputrc'),
