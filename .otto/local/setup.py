@@ -55,6 +55,14 @@ CP_FILES = [
         ('monofur.otf', '/usr/share/fonts/truetype/'),
         ]
 
+CRONS = {
+        None: [],
+        'Ubuntu': [
+            "* * * * * find ~/.wallpaper -type f \( -name '*.jpg' -o -name '*.png' \) -print0 | shuf -n1 -z | xargs -0 feh --bg-scale",
+            ],
+        'CentOS': [],
+        }
+
 POST = {
         None: """git submodule init
                  git submodule update
@@ -79,6 +87,12 @@ def _packages(platform):
         otto.info("Installing %s packages..." % platform)
         to_install = ' '.join(PACKAGES[platform])
         otto.shell(PACKAGE_INSTALL_CMD[platform] % to_install)
+
+def _run_crons(platform):
+    if CRONS[platform]:
+        otto.info("Adding %s crons..." % platform if platform else 'default')
+    for cron in CRONS[platform]:
+        otto.shell("""(crontab -l; echo "%s" ) | crontab -""" % cron)
 
 class Setup(otto.OttoCmd):
     def run(self, gui=True):
@@ -124,6 +138,10 @@ class Setup(otto.OttoCmd):
             for cp_from, cp_to in CP_FILES:
                 relative_from = os.path.join(dotfiles_path, cp_from)
                 otto.shell("cp %s %s" % (relative_from, cp_to))
+
+        # Setup crons
+        _run_crons(None)
+        _run_crons(platform.result)
 
         # More config
         details = {
