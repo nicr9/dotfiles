@@ -44,16 +44,27 @@ PACKAGE_INSTALL_CMD = {
         'python': "sudo pip install %s",
         }
 
-SYMLINKS = [
-        ('dotvimrc', '.vimrc'),
-        ('dotvim/', '.vim'),
-        ('dotinputrc', '.inputrc'),
-        ('doti3/', '.inputrc'),
-        ]
-CP_FILES = [
-        ('dotgitconfig', '.gitconfig'),
-        ('monofur.otf', '/usr/share/fonts/truetype/'),
-        ]
+SYMLINKS = {
+        None: [
+            ('dotvimrc', '.vimrc'),
+            ('dotvim/', '.vim'),
+            ('dotinputrc', '.inputrc'),
+            ],
+        'Ubuntu': [
+            ('doti3/', '.inputrc'),
+            ],
+        'CentOS': [],
+        }
+
+CP_FILES = {
+        None: [
+            ('dotgitconfig', '.gitconfig'),
+            ],
+        'Ubuntu': [
+            ('monofur.otf', '/usr/share/fonts/truetype/'),
+            ],
+        'CentOS': [],
+        }
 
 CRONS = {
         None: [],
@@ -94,6 +105,20 @@ def _run_crons(platform):
     for cron in CRONS[platform]:
         otto.shell("""(crontab -l; echo "%s" ) | crontab -""" % cron)
 
+def _install_symlinks(dotfiles_path, platform):
+    if SYMLINKS[platform]:
+        otto.info("Creating %s symlinks..." % (platform if platform else 'default'))
+    for link_from, link_to in SYMLINKS[platform]:
+        relative_from = os.path.join(dotfiles_path, link_from)
+        otto.shell("ln -s %s %s" % (relative_from, link_to))
+
+def _cp_files(dotfiles_path, platform):
+    if CP_FILES[platform]:
+        otto.info("Copying %s files..." % (platform if platform else 'misc'))
+    for cp_from, cp_to in CP_FILES[platform]:
+        relative_from = os.path.join(dotfiles_path, cp_from)
+        otto.shell("cp %s %s" % (relative_from, cp_to))
+
 class Setup(otto.OttoCmd):
     def run(self, gui=True):
         otto.debug_on()
@@ -129,15 +154,11 @@ class Setup(otto.OttoCmd):
 
         # Configure everything
         with otto.ChangePath():
-            otto.info("Creating config symlinks...")
-            for link_from, link_to in SYMLINKS:
-                relative_from = os.path.join(dotfiles_path, link_from)
-                otto.shell("ln -s %s %s" % (relative_from, link_to))
+            _install_symlinks(dotfiles_path, None)
+            _install_symlinks(dotfiles_path, platform.result)
 
-            otto.info("Copying other config files...")
-            for cp_from, cp_to in CP_FILES:
-                relative_from = os.path.join(dotfiles_path, cp_from)
-                otto.shell("cp %s %s" % (relative_from, cp_to))
+            _cp_files(dotfiles_path, None)
+            _cp_files(dotfiles_path, platform.result)
 
         # Setup crons
         _run_crons(None)
