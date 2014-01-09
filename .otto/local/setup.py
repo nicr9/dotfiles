@@ -2,6 +2,8 @@ import otto.utils as otto
 import os
 import os.path
 
+dotfiles_path = ''
+
 PRE = {
         None: '',
         'Ubuntu': """sudo echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
@@ -105,28 +107,38 @@ def _packages(platform):
         to_install = ' '.join(PACKAGES[platform])
         otto.shell(PACKAGE_INSTALL_CMD[platform] % to_install)
 
-def _run_crons(platform):
-    if CRONS[platform]:
-        otto.info("Adding %s crons..." % platform if platform else 'default')
-    for cron in CRONS[platform]:
-        otto.shell("""(crontab -l; echo "%s" ) | crontab -""" % cron)
-
-def _install_symlinks(dotfiles_path, platform):
-    if SYMLINKS[platform]:
-        otto.info("Creating %s symlinks..." % (platform if platform else 'default'))
-    for link_from, link_to in SYMLINKS[platform]:
+def _install_symlinks(sl_details):
+    global dotfiles_path
+    for link_from, link_to in sl_details:
         relative_from = os.path.join(dotfiles_path, link_from)
         otto.shell("ln -s %s %s" % (relative_from, link_to))
 
-def _cp_files(dotfiles_path, platform):
-    if CP_FILES[platform]:
-        otto.info("Copying %s files..." % (platform if platform else 'misc'))
-    for cp_from, cp_to in CP_FILES[platform]:
+def _cp_files(cp_details):
+    global dotfiles_path
+    for cp_from, cp_to in cp_details:
         relative_from = os.path.join(dotfiles_path, cp_from)
         otto.shell("cp %s %s" % (relative_from, cp_to))
 
+def _add_crons(cron_details):
+    for cron in cron_details:
+        otto.shell("""(crontab -l; echo "%s" ) | crontab -""" % cron)
+
+METADATA = {
+        _install_symlinks: (SYMLINKS, "Creating symlinks..."),
+        _cp_files: (CP_FILES, "Copying misc files..."),
+        _add_crons: (CRONS, "Adding crons..."),
+        }
+
+def _run(func, platform):
+    data, msg = METADATA[func]
+    if data[platform] or data[None]:
+        otto.info(msg)
+        func(data[None])
+        func(data[platform])
+
 class Setup(otto.OttoCmd):
     def run(self, gui=True):
+        global dotfiles_path
         otto.debug_on()
 
         # Ask for user details first
@@ -160,15 +172,11 @@ class Setup(otto.OttoCmd):
 
         # Configure everything
         with otto.ChangePath():
-            _install_symlinks(dotfiles_path, None)
-            _install_symlinks(dotfiles_path, platform.result)
+            _run(_install_symlinks, platform.result)
+            _run(_cp_files, platform.result)
 
-            _cp_files(dotfiles_path, None)
-            _cp_files(dotfiles_path, platform.result)
-
-        # Setup crons
-        _run_crons(None)
-        _run_crons(platform.result)
+        # Add crons
+        _run(_add_crons, platform.result)
 
         # More config
         details = {
