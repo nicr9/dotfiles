@@ -38,7 +38,13 @@ set colorcolumn=80
 nmap <F5> :setl noai nocin nosi inde=<CR>
 nmap <F4> :Ack <C-R><C-W> <CR>
 nmap <F3> :!pygt <C-R><C-W> <CR>
+vmap <F3> "py:<C-W>!pygt <C-R>p <CR>
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
 nmap <F1> :w !pandoc -c ~/css/github.css -o %:r.html<CR>
 nmap n nzz
 nmap N Nzz
+
+" autocmd
+if has("autocmd")
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+endif
