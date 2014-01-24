@@ -46,3 +46,8 @@ hi DiffText ctermbg=DarkGrey
 hi DiffAdd cterm=bold ctermbg=DarkGreen
 hi DiffChange cterm=inverse
 hi Visual cterm=inverse
+
+" autocmd
+if has("autocmd")
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+endif
