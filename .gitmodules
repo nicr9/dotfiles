@@ -13,3 +13,6 @@
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "dotvim/bundle/vim-airline"]
+	path = dotvim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
