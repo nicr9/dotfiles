@@ -11,8 +11,8 @@ set et bs=2 ts=4 sts=4 sw=4
 let NERDTreeIgnore = ['\.pyc$']
 nmap <F7> :NERDTreeToggle<CR>
 
-" Configure Powerline
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" Configure vim-airline
+let g:airline_powerline_fonts = 1
 set laststatus=2
 
 " Text colours and encoding
@@ -41,6 +41,11 @@ nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
 nmap <F1> :w !pandoc -c ~/css/github.css -o %:r.html<CR>
 nmap n nzz
 nmap N Nzz
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " autocmd
 if has("autocmd")
