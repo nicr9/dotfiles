@@ -47,6 +47,21 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" checkbox lists
+vmap <leader>t :s/^\( [↳]\)\\|[*☑∅]/☐/<CR>:noh<CR> " ☐ : <C-R>u2610
+nmap <leader>t :.s/^\( [↳]\)\\|[*☑∅]/☐/<CR>:noh<CR>
+vmap <leader>d :s/^\( [↳]\)\\|[*☐∅]/☑/<CR>:noh<CR> " ☑ : <C-R>u2611
+nmap <leader>d :.s/^\( [↳]\)\\|[*☐∅]/☑/<CR>:noh<CR>
+vmap <leader>s :s/^\( [↳]\)\\|[☑☐∅]/*/<CR>:noh<CR> " * : <S-8>
+nmap <leader>s :.s/^\( [↳]\)\\|[☑☐∅]/*/<CR>:noh<CR>
+vmap <leader>n :s/^\( [↳]\)\\|[☑☐*]/∅/<CR>:noh<CR> " ∅ : <C-R>u2205
+nmap <leader>n :.s/^\( [↳]\)\\|[☑☐*]/∅/<CR>:noh<CR>
+vmap <leader>r :s/^[☑☐*∅]/ ↳/<CR>:noh<CR> " ↳ : <C-R>u21b3
+nmap <leader>r :.s/^[☑☐*∅]/ ↳/<CR>:noh<CR>
+
+vmap <leader>. :s/$/./<CR>:noh<CR>
+nmap <leader>. :.s/$/./<CR>:noh<CR>
+
 " autocmd
 if has("autocmd")
     autocmd BufReadPost fugitive://* set bufhidden=delete
