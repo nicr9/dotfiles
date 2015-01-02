@@ -118,8 +118,6 @@ bindsym $mod+Shift+Tab move workspace to output left
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -b 'Yup!' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -156,6 +154,7 @@ bar {
 
 ## USER CHANGES
 bindsym Control+mod1+l exec i3lock -c 00678c -n -d 1
+bindsym Control+mod1+e exec "i3-nagbar -t warning -m 'Log out?' -b 'Yup!' 'i3-msg exit'"
 bindsym Control+mod1+s exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Yup!' 'sudo shutdown -Ph now'"
 client.urgent #2f343a #900000 #ffffff #900000
 bindsym Print exec gnome-screenshot -i
