@@ -31,3 +31,6 @@
 [submodule "dotvim/bundle/vim-airline"]
 	path = dotvim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "dotvim/bundle/Dockerfile.vim"]
+	path = dotvim/bundle/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
