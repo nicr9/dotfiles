@@ -25,9 +25,6 @@
 [submodule "dotvim/bundle/go.vim"]
 	path = dotvim/bundle/go.vim
 	url = git://github.com/jnwhiteh/vim-golang.git
-[submodule "dotvim/bundle/mdnote"]
-	path = dotvim/bundle/mdnote
-	url = git@github.com:nicr9/mdnote.git
 [submodule "dotvim/bundle/vim-airline"]
 	path = dotvim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
