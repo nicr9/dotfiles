@@ -28,3 +28,6 @@
 [submodule "dotvim/bundle/vim-airline"]
 	path = dotvim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "dotvim/bundle/vim-orca"]
+	path = dotvim/bundle/vim-orca
+	url = https://github.com/nicr9/vim-orca.git
