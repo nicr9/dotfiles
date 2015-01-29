@@ -15,12 +15,9 @@ ln -s dotfiles/dotvimrc .vimrc
 ln -s dotfiles/dotvim/ .vim
 ln -s dotfiles/dotinputrc .inputrc
 ln -s dotfiles/doti3/ .i3
-cp dotfiles/dotgitconfig .gitconfig
-ln -s dotfiles/dotgitignore .gitignore_global
 
-# Fill in the blanks w/ git name and email details
-git config --global user.name "Nic Roland"
-git config --global user.email "nicroland9@gmail.com"
+ln -s dotfiles/dotgitconfig .gitconfig
+ln -s dotfiles/dotgitignore .gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
 cd ~/dotfiles
