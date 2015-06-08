@@ -19,9 +19,6 @@ set laststatus=2
 set t_Co=256
 set encoding=utf-8
 
-" Configure Tagbar
-nmap <F8> :TagbarToggle<CR>
-
 " Configure CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp
 
