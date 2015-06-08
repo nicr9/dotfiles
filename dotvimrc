@@ -81,8 +81,58 @@ nmap <leader><space> :.s/^/\r# \r\r## Goals\r/<CR>:noh<CR>kkk$"=strftime("%d/%m/
 vmap <leader>. :s/$/./<CR>:noh<CR>:w<CR>
 nmap <leader>. :.s/$/./<CR>:noh<CR>:w<CR>
 
-" autocmd
-if has("autocmd")
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-    autocmd InsertLeave /home/nic/logs/*.md w
-endif
+" Work log functions/commands
+function! FoldJira() abort
+    let jira_code = matchstr(getline("."), "(.*)")
+    let start = 1
+
+    let saved_cursor = getpos('.')[1:2]
+    call cursor(1, 1)
+
+    while 1
+        let log_title = search(jira_code, "W")
+        if log_title == 0
+            break
+        endif
+
+        " fold start -> log title
+        execute ":" . start . "," . (log_title - 1) . "fold"
+
+        " Find the next title
+        let next_title = [search("^# ", "W")]
+        call cursor(log_title, 0)
+        call add(next_title, search("^## ", "W"))
+
+        if index(next_title, 0) >= 0
+            call remove(next_title, index(next_title, 0))
+        endif
+
+        let start = min(next_title)
+    endwhile
+
+    call cursor(saved_cursor)
+endfunction
+
+nmap <leader>z :call FoldJira()
+
+function! CpParagraph() abort
+    exec 'normal! {)"*y}'
+endfunction
+
+nmap <leader>c :call CpParagraph()<CR>
+
+function! PushParagraph() abort
+    "Copy text from current paragraph
+    exec 'normal! {)"9y}'
+
+    "write to file
+    let tmp = tempname()
+    exec writefile(split(@9, '\n'), tmp)
+    let cmd = ['python2.7', './notepush.py', tmp]
+
+    "Push note
+    exec "silent !" . join(cmd, ' ')
+    "echom join(cmd, ' ')
+endfunction
+
+nmap <leader>p :call PushParagraph()<CR>
