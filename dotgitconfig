@@ -1,4 +1,9 @@
+[user]
+    name = Nic Roland
+    email = nroland@demonwaremail.net
 [core]
-	editor = vim
+    editor = vim
 [color]
-	ui = true
+    ui = true
+[alias]
+    graph = log --oneline --graph --decorate
