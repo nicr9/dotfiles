@@ -1,6 +1,6 @@
 # install git vim screen exuberant-ctags python2.7
-# CentOS 5:
-sudo yum install git vim-enhanced screen ctags
+# CentOS
+sudo yum install git vim-enhanced screen ctags docker-io telnet
 
 # To configure setup, do the following:
 cd 
