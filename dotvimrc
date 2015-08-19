@@ -43,6 +43,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Fugitive commands
+command! Gadd exec "Git add -p"
+command! -nargs=* Ggraph exec "Git graph " . <q-args>
+command! -nargs=? Gpush exec join(["Git push", len(<q-args>)==0?"origin":<q-args>, system("git rev-parse --abbrev-ref HEAD")], " ")[0:-2]
+
 " Colourscheme changes to make vimdiff readable
 hi DiffDelete ctermfg=DarkRed
 hi DiffText ctermbg=DarkGrey
