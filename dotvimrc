@@ -30,8 +30,9 @@ set incsearch
 set colorcolumn=80
 
 " Extra keymappings
-nmap <F5> :setl noai nocin nosi inde=<CR>
-nmap <F4> :Ack <C-R><C-W> <CR>
+nmap <F6> :!grep "^\s*\(def\\|class\) " %<CR>
+nmap <F5> :set paste!<CR>
+nmap <F4> :set nu!<CR>
 nmap <F3> :!pygt <C-R><C-W> <CR>
 vmap <F3> "py:<C-W>!pygt <C-R>p <CR>
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
