@@ -27,13 +27,16 @@ set incsearch
 
 " Extra keymappings
 nmap <F8> :!grep % -e "^\s*class \\|^\s*def "<CR>
-nmap <F5> :exec "?\\(<C-R><C-W>\\s*=" . '\\|' . "\\(class" . '\\|' . "def\\).*<C-R><C-W>.*:\\)"<CR>
-nmap <F4> :Ack <C-R><C-W> <CR>
+nmap <F6> :!grep "^\s*\(def\\|class\) " %<CR>
+nmap <F5> :set paste!<CR>
+nmap <F4> :set nu!<CR>
 nmap <F3> :!pygt <C-R><C-W> <CR>
 vmap <F3> "py:<C-W>!pygt "<C-R>p" <CR>
 nmap <F2> mm:%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
+
 nmap n nzz
 nmap N Nzz
+nmap <leader>n :noh<CR>
 
 nmap gd md?def <C-R><C-W>(<CR>:noh<CR>
 nmap gc mc?class <C-R><C-W>[(:]<CR>:noh<CR>
@@ -58,4 +61,5 @@ hi Visual cterm=inverse
 " autocmd
 if has("autocmd")
     autocmd BufReadPost fugitive://* set bufhidden=delete
+    autocmd FileType python nmap <buffer> <leader>r :!python2.7 %<CR>
 endif
